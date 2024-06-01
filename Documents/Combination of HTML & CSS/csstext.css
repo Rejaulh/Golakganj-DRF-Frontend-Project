@@ -1,0 +1,20 @@
+h1{
+    color: rgb(81, 139, 106);
+    /*background-image: url(/home/rejaul/Downloads/raj1.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;*/
+}
+p{
+    color:red;
+}
+body{
+    /*background-color: rgb(159, 151, 167);*/
+    background-image: url(/home/rejaul/Downloads/raj1.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+a:link{
+    color: green;
+}
