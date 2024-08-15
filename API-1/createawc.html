@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-AWC</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+select {
+    height: 35px;
+}
+
+form select, form input[type="checkbox"] {
+    margin-bottom: 20px;
+}
+@media (max-width: 400px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Enter AWC Details here</h1>
+    <form action="" id="awc-form">
+        <label for="sector_name">Select your Sector Name:</label>
+        <!-- <input type="text" id="sector_name" name="sector_name" required><br><br> -->
+        <select name="sector" id="sector_name">
+            <option value="Kumarganj">Kumarganj</option>
+            <option value="Harirhat">Harirhat</option>
+            <option value="Bisondoi">Bisondoi</option>
+            <option value="Golakganj">Golakganj</option>
+            <option value="Bishkhowa">Bishkhowa</option>
+        </select><br><br>
+
+        <label for="AWC_Code">AWC Code:</label>
+        <input type="number" id="AWC_Code" name="AWC_Code" required><br><br>
+
+        <label for="AWC_Name">AWC Name:</label>
+        <input type="text" id="AWC_Name" name="AWC_Name" required><br><br>
+
+        <label for="AWW_Name">AWW Name:</label>
+        <input type="text" id="AWW_Name" name="AWW_Name" required><br><br>
+
+        <label for="AWW_Phone">AWW Phone:</label>
+        <input type="tel" id="AWW_Phone" name="AWW_Phone" required><br><br>
+
+        <label for="AWH_Name">AWH Name:</label>
+        <input type="text" id="AWH_Name" name="AWH_Name" required><br><br>
+
+        <label for="AWH_Phone">AWH Phone:</label>
+        <input type="tel" id="AWH_Phone" name="AWH_Phone" required><br><br>
+
+        <label for="AWC_Address">AWC Address:</label>
+        <input type="text" id="AWC_Address" name="AWC_Address" required><br><br>
+
+        <label for="Building_Type">Building Type:</label>
+        <!-- <input type="text" id="Building_Type" name="Building_Type" required><br><br> -->
+        <select name="sector" id="Building_Type">
+            <option value="Govt Building">Govt Building</option>
+            <option value="Private Building">Private Building</option>
+        </select><br><br>
+ 
+
+        <label for="Drinking_Water_Facility">Drinking Water Facility:</label>
+        <input type="checkbox" id="Drinking_Water_Facility" name="Drinking_Water_Facility"><br><br>
+
+        <label for="Toilet_Facility">Toilet Facility:</label>
+        <input type="checkbox" id="Toilet_Facility" name="Toilet_Facility"><br><br>
+
+        <label for="Electricity_Avaiable">Electricity Available:</label>
+        <input type="checkbox" id="Electricity_Avaiable" name="Electricity_Avaiable"><br><br>
+
+        <label for="Kitchen_Garden_Available">Kitchen Garden Available:</label>
+        <input type="checkbox" id="Kitchen_Garden_Available" name="Kitchen_Garden_Available"><br><br>
+
+        <label for="AWC_Image">Upload Image:</label>
+        <input type="file" id="AWC_Image" name="AWC_Image" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <p id="response"></p>
+    <!-- <p id="contactForm"></p> -->
+
+
+    <script>
+        // function validateAWC_Code(AWC_Code) {
+    // AWC_Code should be a number and have exactly 11 digits
+        //     const awcCodePattern = /^[0-9]{11}$/;
+        //     return awcCodePattern.test(AWC_Code);
+        // }
+        const apiUrl = 'http://127.0.0.1:8000/api/worker/';  // Replace with your API URL
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNTU4MzUzLCJpYXQiOjE3MjM1NDc1NTMsImp0aSI6IjA4ZTQ1NDMzNWRjZjQxMTI4N2M2OGU5ZmY1NjNhZWIwIiwidXNlcl9pZCI6MX0.08u1tRPgZY3Vh_q5_A5er28saBGiAKjBkolYmSSe8yY";
+        document.getElementById('awc-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+     // Validate AWC_Code
+    // if (!validateAWC_Code(AWC_Code)) {
+    //     alert("Invalid AWC Code. Please enter a valid 11-digit number.");
+    //     return;
+    // }
+
+    
+        
+        const data = {sector: {
+                    sector_name: document.getElementById('sector_name').value
+                },
+                AWC_Code: document.getElementById('AWC_Code').value,
+                AWC_Name: document.getElementById('AWC_Name').value,
+                AWW_Name: document.getElementById('AWW_Name').value,
+                AWW_Phone: document.getElementById('AWW_Phone').value,
+                AWH_Name: document.getElementById('AWH_Name').value,
+                AWH_Phone: document.getElementById('AWH_Phone').value,
+                AWC_Address: document.getElementById('AWC_Address').value,
+                Building_Type: document.getElementById('Building_Type').value,
+                Drinking_Water_Facility: document.getElementById('Drinking_Water_Facility').checked,
+                Toilet_Facility: document.getElementById('Toilet_Facility').checked,
+                Electricity_Avaiable: document.getElementById('Electricity_Avaiable').checked,
+                Kitchen_Garden_Available: document.getElementById('Kitchen_Garden_Available').checked,
+                AWC_Image: null // Placeholder for image field
+            };
+
+    // Send the data using the fetch API
+    fetch(apiUrl, { // Replace with your server's API endpoint
+        method: 'POST', // Use POST method
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/json' // Specify the content type as JSON
+        },
+        body: JSON.stringify(data) // Convert the JavaScript object into a JSON string
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the JSON response from the server
+    })
+    .then(data => {
+        document.getElementById('response').textContent = 'Thank you for your message!';
+        document.getElementById('awc-form').reset(); // Clear the form after submission
+        // if(data.exists){
+        //     errorElement.textContent="This AWC Code already exist";
+        // }
+        // else{
+        //     document.getElementById(AWC_Code).setCustomValidity("");
+        // }
+        // console.log(data);
+    })
+    .catch(error => {
+        document.getElementById('response').textContent = 'An error occurred: ' + error.message;
+    });
+});
+    </script>
+</body>
+</html>
