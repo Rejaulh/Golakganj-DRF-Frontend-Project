@@ -143,9 +143,3 @@ class WorkerSerializer(serializers.ModelSerializer):
             sector.save()
 
         return instance
-
-    # def validate_AWC_Code(self, value):
-    #     if Worker.objects.filter(AWC_Code=value).exists():
-    #         raise ValidationError("This AWC Code has already Exist.")
-    #     return value
-    
