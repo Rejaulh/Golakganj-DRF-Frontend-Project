@@ -15,8 +15,9 @@ fetch(url, {
 .then(response => response.json())
 .then(data => {
     if (data.access){
-        localStorage.setItem("token", data.access);
-        alert("Login Succesfull !");
+        // localStorage.setItem("token", data.access);
+        window.location.href = "home_page.html";
+        // alert("Login Succesfull !");
     }else {
         alert("Login Failed!");
     }
@@ -25,3 +26,22 @@ fetch(url, {
     console.log('Error:', error);
 });
 });
+
+
+// CSRF token helper function for Django
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
