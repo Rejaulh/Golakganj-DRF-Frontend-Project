@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table</title>
+    <style>
+        table
+        {
+            font-family: arial, sans-serif;
+            border: -1px solid red;
+            width: 70%;
+            border-collapse: collapse;
+        }
+        tr:nth-child(even)
+        {
+            background-color: #dddddd;
+        }
+        th:nth-child(even)
+        {
+            background-color: rgb(2, 022, 153);
+            border: 1px solid #dddddd;
+            text-align:center;
+            /*width: 100%;*/
+        }
+        td:nth-child(even)
+        {
+            
+            text-align:center;
+        }
+        p{color: green;
+        
+        }
+        h1
+        {
+            text-align: center;
+            color: rgb(255,0,0);
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Table</h1>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr style="height: 200px;">
+            <td>Amazon</td>
+            <td>Riyan</td>
+            <td>India</td>
+        </tr>
+        <tr>
+            <td>TATA Industry</td>
+        <td>Ratan Tata</td>
+        <td>India</td>
+        </tr>
+        <tr>
+            <td>Relince Industry</td>
+            <td>Ambani</td>
+            <td>India</td>
+        </tr>
+
+    </table>
+    <p>Another vertical Table Creating </p>
+    <table>
+       <tr>
+        <th>First Name</th>
+        <td>JIll Eve</td>
+        <td>Bandor</td>
+       </tr> 
+       <tr>
+        <th>Last Name</th>
+        <td>Smit</td>
+        <td>Jacson</td>
+       </tr>
+       <tr>
+        <th>Age</th>
+        <td>50</td>
+        <td>60</td>
+       </tr>
+    </table>
+    <p><b>Creating Colspan Table means two or more headere in one column</b></p>
+    <table>
+        <caption style="color: rgba(201, 102, 255, 23);">Student Details</caption>
+        <tr>
+            <th colspan="2">Name of Candidate</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Osaidi</td>
+            <td>Islam</td>
+            <td>10 Yrs</td>
+        </tr>
+        <tr>
+            <td>Wahiba</td>
+            <td>Islam</td>
+            <td>12 Yrs</td>
+        </tr>
+    </table>
+    <h2>Stripefd Table</h2>
+    <table style="width: 100%;">
+        <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednasday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        <tr>
+            <td>  </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+</body>
+</html>
